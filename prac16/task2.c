@@ -3,22 +3,25 @@ typedef struct student{
   char name[20];
   float marks;
 }student;
-
+int c=0;
 void writetofile(student std){
+  char l[0];
+  l[0]=c==0?'w':'a',c++;
+  printf("%s", l);
   FILE *fptr;
-  fptr=fopen("bruh.bin", "w+");
+  fptr=fopen("bruh.txt",l);
   fprintf(fptr, "\nname: %s", std.name);
   fprintf(fptr, "\tMarks: %f", std.marks);
   fclose(fptr);
 }
 void input(student std){
   printf("\nEnter name: "); gets(std.name);
-  printf("\nEnter mks: ");  scanf("%f", &std.marks);
+  printf("\nEnter mks: ");  scanf("%f%*c", &std.marks);
   writetofile(std);
 }
 void print(){
   FILE *fptr;
-  fptr=fopen("bruh.bin", "r");
+  fptr=fopen("bruh.txt", "r");
   char c;
   c=fgetc(fptr);
   while(c != EOF){
@@ -34,7 +37,6 @@ void main(){
   scanf("%d%*c", &n);
   for(int i=0; i<n; i++){
     input(std[i]);
-  }   
+  }
   print();
 }
-
