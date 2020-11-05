@@ -8,7 +8,7 @@ void writetofile(student std){
   char l[0];
   l[0]=c==0?'w':'a',c++;
   FILE *fptr;
-  fptr=fopen("bruh.txt",l);
+  fptr=fopen("bruh.bin",l);
   fprintf(fptr, "\nname: %s", std.name);
   fprintf(fptr, "\tMarks: %f", std.marks);
   fclose(fptr);
@@ -20,7 +20,7 @@ void input(student std){
 }
 void print(){
   FILE *fptr;
-  fptr=fopen("bruh.txt", "r");
+  fptr=fopen("bruh.bin", "r");
   char c;
   c=fgetc(fptr);
   while(c != EOF){
