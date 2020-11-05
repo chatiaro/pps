@@ -7,7 +7,6 @@ int c=0;
 void writetofile(student std){
   char l[0];
   l[0]=c==0?'w':'a',c++;
-  printf("%s", l);
   FILE *fptr;
   fptr=fopen("bruh.txt",l);
   fprintf(fptr, "\nname: %s", std.name);
